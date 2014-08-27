@@ -23,7 +23,7 @@ namespace UnitTestProject1
         public void TestAdult()
         {
             // Under 18 should return false
-            _p.Age = 17.99;
+            _p.Age =  17.99;
             bool result = _p.isAdult();
             Assert.IsFalse(result);
 
@@ -33,9 +33,80 @@ namespace UnitTestProject1
             Assert.IsTrue(result);
 
             // Over 18 should return true
-            _p.Age = 18.01;
+            _p.Age =  18.01;
             result = _p.isAdult();
             Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void TestEquality()
+        {
+            Person p = new Person();
+            p.Name = "Børge";
+            p.Age = 24;
+            Person o = p;
+            Person otherP = new Person("Børge");
+            otherP.Age = 24;
+
+            Assert.AreEqual(p, otherP);
+
+        }
+       
+        [TestMethod]
+        public void TestEquality1()
+        {
+            Person p = new Person();
+            p.Name = "Børge";
+            p.Age = 24;
+            Person o = p;
+            Person otherP = new Person("ben");
+            otherP.Age = 24;
+
+
+            Assert.AreNotEqual(p, otherP);
+
+
+        }
+        [TestMethod]
+        public void TestEquality2()
+        {
+            Person p = new Person();
+            p.Name = "Børge";
+            p.Age = 24;
+            Person o = p;
+            Person otherP = new Person("børge");
+            otherP.Age = 35;
+
+
+            Assert.AreNotEqual(p, otherP);
+
+
+        }
+        [TestMethod]
+        public void TestEquality3()
+        {
+            Person p = new Person();
+            p.Name = "Børge";
+            p.Age = 25;
+            Person o = p;
+            Person otherP = new Person("ben");
+            otherP.Age = 24;
+
+
+            Assert.AreNotEqual(p, otherP);
+
+
+        }
+
+        [TestMethod]
+        public void TestEquality4()
+        {
+            Person p = new Person();
+            p.Name = "Børge";
+            p.Age = 24;
+            string ab = "børge 24";
+
+            Assert.AreNotEqual(p, ab);
         }
     }
 }

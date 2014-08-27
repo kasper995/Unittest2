@@ -10,6 +10,7 @@ namespace ClassLibrary1
     {
         private string _name;
         private double _age;
+
         public string Name
         {
             get { return _name; }
@@ -38,6 +39,22 @@ namespace ClassLibrary1
         public bool isAdult()
         {
             return _age >= 18;
+        }
+
+        public override bool Equals(object obj)
+        {
+            Person other = (Person) obj;
+
+            if ((decimal)this.Age == (decimal) other.Age && this.Name == other.Name)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+           
         }
     } 
 }
