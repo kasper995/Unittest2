@@ -98,15 +98,8 @@ namespace UnitTestProject1
 
         }
 
-        [TestMethod]
-        public void TestEquality4()
-        {
-            Person p = new Person();
-            p.Name = "Børge";
-            p.Age = 24;
-            string ab = "børge 24";
+      
 
-            Assert.AreNotEqual(p, ab);
-        }
+       
     }
 }
