@@ -98,6 +98,29 @@ namespace UnitTestProject1
 
         }
 
+        [TestMethod]
+        public void TextException()
+        {
+            Person p = new Person();
+            p.Name = "Børge";
+
+
+            try
+            {
+                p.Age = -25;
+                Assert.Fail();
+            }
+            catch (AgeExcepton ae)
+            {
+                Assert.AreEqual("Alder for lav", ae.Message);
+            }
+            catch (Exception e)
+            {
+                Assert.Fail();
+            }
+
+
+        }
       
 
        
